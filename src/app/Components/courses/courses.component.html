@@ -1,0 +1,38 @@
+<div class="justify-content-center text-center">
+  <h3>List Courses with Favorite</h3>
+  <p class="text-warning"> {{log}}</p>
+</div>
+<div class="container row">
+  <div *ngIf="coursesShow.length>0; then foundCourses else notFoundCourses"></div>
+  <ng-template #foundCourses>
+    <div *ngFor="let item of coursesShow" class="col-lg-6">
+      <!-- <div class="card">
+    <div class="card-body">
+    <h3>{{item.Title |uppercase}}</h3>
+    <p>{{item.Description |summary: 20}}</p>
+    <a [href]="item.Id" class="btn btn-dark"> more info</a>
+    </div>
+    </div>
+     -->
+
+      <app-course>
+        <ng-container class="chead">{{item.Title |uppercase}}</ng-container>
+
+        <ng-container class="cbody">{{item.Description |summary: 20}}</ng-container>
+
+        <ng-container class="FavoriteIco ">
+          <app-favorite [isCheck]="item.isFavorite" (change)="onChangeFavorite($event,item)">
+
+          </app-favorite>
+        </ng-container>
+
+      </app-course>
+
+    </div>
+  </ng-template>
+  <ng-template #notFoundCourses>
+
+    <h3>No Courses Found</h3>
+
+  </ng-template>
+</div>

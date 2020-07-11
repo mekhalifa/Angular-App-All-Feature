@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+
+@import '../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss';
+
+
+
+
+.form-control.ng-invalid.ng-touched{
+    
+    border: 1px solid #ff5353;
+    border-radius: 0.25rem;
+    box-shadow: 0 0 0 0.2rem rgba(253, 75, 75, 0.349);
+}
+
+
+

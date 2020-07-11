@@ -1,0 +1,58 @@
+
+<div>
+<h3>Reactive Form</h3>
+</div>
+<br>
+
+<form class="form-group" [formGroup]="form" >
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-3 col-form-label" >Email</label>
+    <div class="col-sm-9">
+      <input type="email" class="form-control" id="inputEmail3" placeholder="Email" 
+             
+             formControlName="email">
+      <div class="text-danger" *ngIf="!email.valid&&email.touched">
+        <div *ngIf="email.errors.required" class=""> Email is Required</div>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="form-group row ">
+    <label for="inputusername" class="col-sm-3 col-form-label" >Username</label>
+    <div class="col-sm-9 ">
+      
+      <div class="d-flex align-items-center">
+       
+      <input type="text" class="form-control" id="inputusername" placeholder="username" formControlName="username">
+      <span *ngIf="username.pending" class="spinner-border inline-block" role="status" aria-hidden="true"></span>
+      </div>
+      <span class=" text-warning ">[khalifa , mohamed , ahmed] already used</span>
+      <div class="text-danger" *ngIf="!username.valid && username.dirty">
+
+        <div *ngIf="!username.pending">
+          <div *ngIf="username.errors.required"> Username is Required</div>
+          <div *ngIf="username.errors.minlength">username must be more than {{username.errors.minlength.requiredLength}} characters </div>
+          <div *ngIf="username.errors.canNotContainSpace"> Username must not contain space</div>
+          <div *ngIf="username.errors.shouldBeUnique"> Username already taken</div>
+       </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="form-group row">
+    <label for="inputPassword3" class="col-sm-3 col-form-label" >Password</label>
+    <div class="col-sm-9">
+      <input type="password" class="form-control" id="inputPassword3" placeholder="Password" formControlName="password">
+      <div class="text-danger" *ngIf="!password.valid && password.touched">
+        <div *ngIf="password.errors.required"> Password is Required</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Register</button>
+    </div>
+  </div>
+</form>

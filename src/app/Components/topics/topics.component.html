@@ -1,0 +1,27 @@
+
+<div>
+    <h3>Array Form</h3>
+    </div>
+    <br>
+
+<form class=" ">
+    <div class="form-group">
+        
+        <input type="text" name="topic" id="topic" class="form-control" placeholder="add topic and press enter " 
+              (keyup.enter)="addTopic(topic)" #topic  >
+        
+    </div>
+</form>
+
+<div class="">
+    <ul class="list-group">
+        <li class="list-group-item flo" 
+            *ngFor="let item of topics.controls" >
+
+            {{item.value}}
+
+            <div class="btn btn-dark float-right" (click)="removeTopic(item)"> delete </div>
+        </li>
+
+    </ul>
+</div>

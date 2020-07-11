@@ -1,0 +1,8 @@
+<!-- <div (click) ="onFavoriteClick()" >
+<img [src]="isCheck? './assets/star-full.png':'./assets/star-empty.png'" >
+</div> -->
+ 
+<i (click) ="onFavoriteClick()"
+   [class]="isCheck?'fas fa-star fa-2x':'far fa-star fa-2x'"
+   class="text-info star">
+</i>
